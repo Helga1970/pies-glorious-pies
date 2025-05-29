@@ -5,29 +5,21 @@ export default async (request, context) => {
   console.log('Incoming request URL:', requestUrl);
   console.log('Referer header:', referer);
 
-  // Разрешённые домены
-  const allowedReferers = [
-    'https://pro-culinaria.ru',
-    'http://pro-culinaria.ru',
-    'https://www.pro-culinaria.ru',
-    'http://www.pro-culinaria.ru',
+  const allowedHosts = [
     'pro-culinaria.ru',
     'www.pro-culinaria.ru',
-
-    'https://pies-glorious-pies.netlify.app',
-    'http://pies-glorious-pies.netlify.app',
-    'https://pies-glorious-pies.proculinaria-book.ru',
-    'http://pies-glorious-pies.proculinaria-book.ru',
+    'pies-glorious-pies.netlify.app',
+    'pies-glorious-pies.proculinaria-book.ru',
   ];
 
   if (referer) {
     try {
       const refererUrl = new URL(referer);
-      const refererOrigin = refererUrl.origin;
+      const refererHost = refererUrl.host;
 
-      console.log('Parsed Referer Origin:', refererOrigin);
+      console.log('Parsed Referer Host:', refererHost);
 
-      const isAllowed = allowedReferers.includes(refererOrigin);
+      const isAllowed = allowedHosts.includes(refererHost);
 
       console.log('Is referer allowed?', isAllowed);
 
