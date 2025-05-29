@@ -15,7 +15,7 @@ export default async (request, context) => {
   if (referer) {
     try {
       const refererUrl = new URL(referer);
-      const refererHost = refererUrl.host;
+      const refererHost = refererUrl.hostname;
 
       console.log('Parsed Referer Host:', refererHost);
 
@@ -27,7 +27,7 @@ export default async (request, context) => {
         return context.next();
       }
     } catch (e) {
-      console.error("Invalid referer URL or parsing error:", referer, e);
+      console.error('Invalid referer URL or parsing error:', referer, e);
     }
   } else {
     console.log('No referer header found. Blocking.');
