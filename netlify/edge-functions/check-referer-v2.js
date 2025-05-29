@@ -1,3 +1,5 @@
+// netlify/edge-functions/check-referer-v2.js
+
 export default async (request, context) => {
   const referer = request.headers.get('referer');
   const requestUrl = request.url;
@@ -5,21 +7,33 @@ export default async (request, context) => {
   console.log('Incoming request URL:', requestUrl);
   console.log('Referer header:', referer);
 
-  const allowedHosts = [
+  // Разрешённые домены
+  const allowedReferers = [
+    // Основной сайт
+    'https://pro-culinaria.ru',
+    'http://pro-culinaria.ru',
+    'https://www.pro-culinaria.ru',
+    'http://www.pro-culinaria.ru',
     'pro-culinaria.ru',
     'www.pro-culinaria.ru',
-    'pies-glorious-pies.netlify.app',
-    'pies-glorious-pies.proculinaria-book.ru',
+
+    // Netlify-домен для pies-glorious-pies
+    'https://pies-glorious-pies.netlify.app',
+    'http://pies-glorious-pies.netlify.app',
+
+    // Пользовательский домен для pies-glorious-pies
+    'https://pies-glorious-pies.proculinaria-book.ru',
+    'http://pies-glorious-pies.proculinaria-book.ru',
   ];
 
   if (referer) {
     try {
       const refererUrl = new URL(referer);
-      const refererHost = refererUrl.hostname;
+      const refererOrigin = refererUrl.origin;
 
-      console.log('Parsed Referer Host:', refererHost);
+      console.log('Parsed Referer Origin:', refererOrigin);
 
-      const isAllowed = allowedHosts.includes(refererHost);
+      const isAllowed = allowedReferers.includes(refererOrigin);
 
       console.log('Is referer allowed?', isAllowed);
 
@@ -27,7 +41,7 @@ export default async (request, context) => {
         return context.next();
       }
     } catch (e) {
-      console.error('Invalid referer URL or parsing error:', referer, e);
+      console.error("Invalid referer URL or parsing error:", referer, e);
     }
   } else {
     console.log('No referer header found. Blocking.');
