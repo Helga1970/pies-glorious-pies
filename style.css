@@ -1,0 +1,31 @@
+/* Это пример базового CSS для вашего проекта, если у вас был другой CSS, вставьте его здесь */
+/* Убедитесь, что здесь только CSS-код */
+
+/* --- Защита от копирования и печати --- */
+
+/* Отключение выделения текста */
+body {
+    -webkit-user-select: none;  /* Safari */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* Internet Explorer/Edge */
+    user-select: none;          /* Standard */
+}
+
+/* Отключение возможности копирования (например, по правому клику) */
+body {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Стили для печати - можно скрыть контент при печати */
+@media print {
+    body * {
+        visibility: hidden; /* Скрыть все элементы */
+    }
+    /* Если нужно что-то показать при печати, добавьте сюда */
+    /* Например: .printable-content { visibility: visible; } */
+}

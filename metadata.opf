@@ -1,0 +1,19 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:creator opf:role="aut" opf:file-as="Clark, Maxine;">Clark, Maxine;</dc:creator>
+<dc:identifier opf:scheme="calibre" id="calibre_id">659401f9-9a7a-41e9-b77a-f8d65fe1ce34</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">659401f9-9a7a-41e9-b77a-f8d65fe1ce34</dc:identifier>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (8.4.0) [https://calibre-ebook.com]</dc:contributor>
+        <dc:date>2020-09-15T22:00:00+00:00</dc:date>
+        <dc:description>Mouth-watering recipes for delicious pies</dc:description>
+        <dc:publisher>Ryland Peters &amp; Small</dc:publisher>
+        <dc:rights>Text © Maxine Clark 2012, 2020</dc:rights>
+        <dc:title>Pies Glorious Pies</dc:title>
+<meta name="calibre:title_sort" content="Pies Glorious Pies"/>
+<dc:language>eng</dc:language>
+</metadata>
+    <guide>
+        <reference type="cover" title="Обложка" href="cover.jpg"/>
+    </guide>
+</package>
